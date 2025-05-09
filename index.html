@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Support Request</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- jQuery (required for Zammad form) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #6200ee;
+      --surface-color: #ffffff;
+      --text-color: #1e1e1e;
+      --radius: 16px;
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: var(--surface-color);
+      padding: 40px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 600px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.75rem;
+      color: #000; /* black */
+      margin-bottom: 24px;
+    }
+
+    .zammad-form input,
+    .zammad-form textarea,
+    .zammad-form select {
+      border-radius: 8px !important;
+      padding: 10px !important;
+      border: 1px solid #ccc !important;
+      font-size: 1rem;
+      width: 100% !important;
+      margin-bottom: 16px !important;
+      box-sizing: border-box;
+    }
+
+    .zammad-form button {
+      background: var(--primary-color) !important;
+      color: white !important;
+      border: none !important;
+      border-radius: 8px !important;
+      padding: 12px 20px !important;
+      font-weight: bold !important;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .zammad-form button:hover {
+      background: #3700b3 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Submit a Support Request</h1>
+
+    <div id="zammad-feedback-form">Loading form...</div>
+
+  </div>
+
+  <script id="zammad_form_script" src="http://rachov.vaayerddns.com:8101/assets/form/form.js"></script>
+
+  <script>
+    $(function () {
+      $('#zammad-feedback-form').ZammadForm({
+        messageTitle: 'Please Submit Your Request Here',
+        messageSubmit: 'Submit',
+        messageThankYou: 'Thank you for your inquiry (#%s)! We\'ll contact you as soon as possible.',
+        showTitle: false,
+        attachmentSupport: true,
+        modal: false
+      });
+    });
+  </script>
+
+</body>
+</html>
