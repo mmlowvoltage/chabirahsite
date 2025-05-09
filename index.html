@@ -87,10 +87,12 @@
 
   </div>
 
+  <!-- Zammad Form Script (ensure jQuery is loaded before this) -->
   <script id="zammad_form_script" src="http://rachov.vaayerddns.com:8101/assets/form/form.js"></script>
 
   <script>
-    $(function () {
+    $(document).ready(function () {
+      // Initialize Zammad form after jQuery is ready
       $('#zammad-feedback-form').ZammadForm({
         messageTitle: 'Please Submit Your Request Here',
         messageSubmit: 'Submit',
